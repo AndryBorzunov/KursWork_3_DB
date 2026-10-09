@@ -1,9 +1,8 @@
-import json
 from typing import Any
 
 
 class Aeroplane:
-    """ Класс представляет абстракцию самолета """
+    """Класс представляет абстракцию самолета"""
 
     def __init__(self, icao24: str, callsign: str, origin_country: str, velocity: float, altitude: float) -> None:
         # уникальный идентификатор борта
@@ -39,7 +38,11 @@ class Aeroplane:
         return f"Позывной рейса: {self.__Callsign}, страна регистрации: {self.__origin_country}, скорость: {self.__velocity}, высота: {self.__altitude}"
 
     def __str__(self) -> str:
-        return "{" + f"Позывной рейса: {self.__Callsign}, страна регистрации: {self.__origin_country}, скорость: {self.__velocity}, высота: {self.__altitude}" + "}"
+        return (
+            "{"
+            + f"Позывной рейса: {self.__Callsign}, страна регистрации: {self.__origin_country}, скорость: {self.__velocity}, высота: {self.__altitude}"
+            + "}"
+        )
 
     @classmethod
     def __verify_string(cls, value: str) -> str:
@@ -49,8 +52,8 @@ class Aeroplane:
         value = value.strip()
         if not value:
             print(value)
-            value = '111'
-            #raise TypeError("Значение не может быть пустым")
+            value = "111"
+            # raise TypeError("Значение не может быть пустым")
         cleaned = "".join(value.split())
         cleaned = cleaned.replace("'", "")
         if not cleaned.isalnum() or len(cleaned) == 0:
@@ -94,9 +97,9 @@ class Aeroplane:
     def cast_to_object_list(cls, aeroplanes: dict) -> list[Any] | None:
         """Преобразование списка словарей вакансий в список экземпляров класса Aeroplane"""
 
-        aeroplanes_obj = []
-        #parsed = json.loads(aeroplanes)
-        #time_server = aeroplanes["time"]
+        aeroplanes_obj: list[Aeroplane] = []
+        # parsed = json.loads(aeroplanes)
+        # time_server = aeroplanes["time"]
         states = aeroplanes["states"]
 
         if states is None:

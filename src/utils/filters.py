@@ -2,8 +2,9 @@ from typing import List, Tuple
 
 from src.models.aeroplane import Aeroplane
 
+
 def filter_aeroplanes(aeroplanes: List[Aeroplane], filter_words: List[str]) -> List[Aeroplane]:
-    """ Выборка самолетов по стране регистрации """
+    """Выборка самолетов по стране регистрации"""
 
     if not filter_words:
         return aeroplanes
@@ -21,7 +22,7 @@ def filter_aeroplanes(aeroplanes: List[Aeroplane], filter_words: List[str]) -> L
 
 
 def get_aeroplanes_by_altitude(aeroplanes: List[Aeroplane], altitude_range: Tuple[float, float]) -> List[Aeroplane]:
-    """ Выборка самолетов по диапазону высот """
+    """Выборка самолетов по диапазону высот"""
 
     if not altitude_range:
         return aeroplanes
@@ -42,9 +43,9 @@ def sort_aeroplanes(aeroplanes: List[Aeroplane]) -> List[Aeroplane]:
 
 
 def get_top_aeroplanes(aeroplanes: List[Aeroplane], top_n: int) -> List[Aeroplane]:
-    """ Выборка нескольких самолетов с максимальной высотой """
+    """Выборка нескольких самолетов с максимальной высотой"""
 
-    top_aeroplanes= []
+    top_aeroplanes = []
     for index, item in enumerate(aeroplanes):
         if index < top_n:
             top_aeroplanes.append(item)
